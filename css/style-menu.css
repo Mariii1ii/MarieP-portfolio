@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    margin: 0rem;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+  }
+
+
+/*Barre de navigation */
+nav{
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    margin: 20px 30px 20px 30px;
+}
+
+.coordonnee{
+    float: left;
+    text-transform: uppercase;
+
+}
+
+h3{
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.liens, .mail{
+    font-weight: 300;
+    font-size: 11px;
+}
+
+.reseau{
+    position: relative;
+}
+
+.rubrique{
+    float: right;
+    margin: 20px 60px 10px 0;
+    border:solid 1px rgb(255, 255, 255);
+    background-color: rgba(250, 235, 215, 0);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 1px -2px 2px rgba(250, 235, 215, 0);
+    z-index: 1000;
+}
+
+.onglet{
+    margin: 10px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.souslignage::before{
+    position: absolute;
+    background-color: aliceblue;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: all 0.4s ease;
+}
+
+.souslignage:hover::before{
+    width: 100%;
+  }
+
+
+/* Fin barre de navigation */
+
+h1{
+  color: aliceblue; 
+  font-size: 40px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+a, h3{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.consigne{
+  position: absolute;
+  height: 10vh;
+  width: 10vh;
+  left: calc(50% - 25px);
+  top: 80vh;
+}
+
+  /*Section defilement horizontal */
+  #image-track {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translate(0%, -50%); 
+    user-select: none;
+  }
+  
+.contenant {
+  position: relative;
+  overflow: hidden;
+}
+
+.contenant::after {
+  content: '';
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000b2;
+  opacity: 0;
+  transition: .5s ease all;
+}
+
+.contenant:hover::after {
+  opacity: 0.5;
+}
+
+.contenant:hover img {
+  transform: scale(1.1);
+}
+
+.contenant a{
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  opacity: 0;
+  padding: 10px;
+  border:solid 1px rgb(255, 255, 255);;
+  background-color: rgba(250, 235, 215, 0);
+  backdrop-filter: blur(5px);
+  border-radius: 190px;
+  box-shadow: 1px -2px 2px rgba(250, 235, 215, 0);
+  transition: opacity 0.3s ;
+}
+
+.contenant:hover a {
+  opacity: 1;
+  
+  
+}
+
+.image {
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.3s;
+}
+
+.legende{
+  position: absolute;
+  font-size: 3vh;
+  top: 48%;
+  left: 35%;
+  z-index: 10;
+  text-decoration: none;
+  color: white;
+}
+
+/*Fin section defilement horizontal */
+
+/* Animation de la page au chargement */
+
+.apparition{
+  animation: IntroductionPage 1s both;
+}
+
+@keyframes IntroductionPage{
+  from{
+      opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+/* Animation des volets de transitions en sorti */
+
+.volet{
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  width: 100vw;
+  height: 100vh;
+}
+
+.haut{
+  transform: translateY(-100%);
+}
+
+.haut-animation{
+  animation: Descente .4s both;
+}
+
+@keyframes Descente{
+  from{
+    transform: translateY(-100%);
+  }to{
+    transform: translateY(-50%);
+  }
+}
+
+.bas{
+  transform: translateY(100%);
+}
+
+.bas-animation{
+  animation: Montee .4s both;
+}
+
+@keyframes Montee{
+  from{
+    transform: translateY(100%);
+  }to{
+    transform: translateY(50%);
+  }
+}
+
+.disparition{
+  animation: Disparition .500s both;
+}
+
+@keyframes Disparition{
+  from{
+      opacity: 1;
+  }
+  to{
+      opacity: 0;
+  }
+}
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 500px) {
+
+  /* Nav bar*/
+  .rubrique{
+    float: left;
+    display: block;
+    margin-top: 0;
+  }
+
+  .onglet{
+    font-size: 9px;
+    margin: 5px;
+  }
+
+  .projets{
+    color: black;
+    background-color: aliceblue;
+    border-radius: 100px;
+    padding: 5px;
+  }
+
+  .coordonnee{
+    clear: both;
+  }
+
+  h3{
+    font-weight: 400;
+    font-size: 9px;
+}
+
+.liens, .mail{
+    font-weight: 200;
+    font-size: 7px;
+}
+
+  /* section defilement horizontal */
+  h1{
+    display: none;
+  }
+}

@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+
+body{
+    background-color: #f7f5f4;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+section{
+    margin: 0;
+    padding: 0;
+}
+
+/* Animation de fondue au chargement de la page */
+
+.transition-entree{
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    z-index: 100;
+    transform: translateY(-90%);
+    background-color: rgb(0, 0, 0);
+    animation: Chargement-entree .8s both;
+  }
+
+@keyframes Chargement-entree{
+    from{
+        opacity: 1;
+    }to{
+        opacity: 0;
+        display: none;
+    }
+}
+
+/*Barre de navigation */
+nav{
+    position: fixed;
+    color: rgb(166, 150, 129);
+    z-index: 999;
+    width: 100%;
+    margin: 20px 30px 20px 30px;
+}
+
+.coordonnee{
+    float: left;
+    text-transform: uppercase;
+
+}
+
+h3{
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.liens, .mail{
+    font-weight: 300;
+    font-size: 11px;
+}
+
+.reseau{
+    position: relative;
+}
+
+.rubrique{
+    float: right;
+    margin: 20px 60px 10px 0;
+    border:solid 1px rgb(166, 150, 129);;
+    background-color: rgba(250, 235, 215, 0);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 1px -2px 2px rgba(250, 235, 215, 0);
+    z-index: 1000;
+}
+
+.onglet{
+    margin: 10px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.souslignage::before{
+    position: absolute;
+    background-color: rgb(166, 150, 129);;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: all 0.4s ease;
+}
+
+.souslignage:hover::before{
+    width: 100%;
+  }
+
+a{
+    text-decoration: none;
+    color: rgb(166, 150, 129);
+}
+
+/* Fin barre de navigation */
+
+/* Gestion du smooth scroll */
+
+.smooth-scroll{
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    margin: 0 20px;
+    overflow: hidden;
+}
+
+
+
+/* Bandeau avec image principale et animation au chargement */
+
+.cadre-img-p{
+    margin: 2vw auto;
+    top: 0;
+    left: 0;
+    width: 96vw;
+    height: 60vh;
+    z-index: -10;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-principale{
+    width: 100vw;
+    height: 60vh;
+    object-fit: cover;
+    object-position: 100% center;
+    position: absolute; 
+}
+
+/* L'animation du cache permet d'afficher l'image au chargement de la page*/
+
+.cache{
+    position: absolute;
+    width: 100vw;
+    height: 60vh;
+    background-color: #f7f5f4;
+    z-index: 199;
+    animation: Cache 0.7s both 0.5s;
+}
+
+@keyframes Cache{
+    from{
+        transform: translateY(0%);
+    }to{
+        transform: translateY(100%);
+    }
+}
+
+h1{
+    position: absolute;
+    z-index: 200;
+    height: 25vh;
+    width: 100%;
+    text-align: center;
+    font-size: 18vh;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 100;
+    color: white;
+    overflow: hidden;
+    animation: Titre 1s both 0.5s;
+}
+
+@keyframes Titre{
+    from{
+        transform: translateY(100%);
+        opacity: 0;
+    }to{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+/* Fin bandeau avec image principale et animation au chargement */
+
+/* Animation-bloc et animation-bloc-visibilite permettent d'afficher les blocs lorsque l'affichage les focus*/
+
+.animation-bloc{
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.animation-bloc-visible{
+    animation: Visible 1s both;
+}
+
+@keyframes Visible{
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fin animation-bloc*/
+
+
+/* Style du corp de la page*/
+
+.corp-page{
+    float: right;
+    width: 75vw;
+    padding: 40px;
+}
+
+.presentation{
+    margin: 6vh 12vh;
+    padding: 6vh 0vh 6vh 0vh;
+    font-size: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+.detail-projet{
+    margin: 0 12vh;
+}
+
+.col{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+h4{
+font-size: 13px;
+font-weight: 200;
+}
+
+.date{
+    flex: 1;
+    text-align: right;
+    padding: 0 2vw;
+}
+
+.contexte{
+    flex: 6;
+    padding: 0 2vw;
+    text-align: justify;
+}
+
+.trois-quart{
+    width: 60%;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.exergue{
+    text-align: justify;
+    font-size: 30px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.texte{
+    padding: 20px;
+    width: 50%;
+    text-align: justify;
+    line-height: 25px;
+}
+
+/* Fin du style du corp de page*/
+
+
+/* Apparence image*/
+.image{
+    width: 100%;
+    height: fit-content;
+    object-fit: cover;
+    margin: auto;
+    transform: scale(1.05);
+}
+
+.simple{
+    width: 100%;
+    margin: 20px 0;
+}
+
+.double{
+    width: 48%;
+    margin: 20px 0;
+}
+
+/*Style image gallerie */
+
+.gallerie-simple{
+    width: 100%;
+    margin: 0;
+}
+
+.gallerie-double{
+    width: 50%;
+    margin: 0;
+}
+
+.bloc-image {
+    overflow: hidden;
+    position: relative;
+}
+
+.bloc-image h2 {
+    color: #000000;
+    font-size: 13px;
+    position: absolute;
+    margin: -40px 10px;
+    padding: 5px;
+    background-color: rgba(250, 235, 215, 0.395);
+    backdrop-filter: blur(20px);
+    border-radius: 190px;
+    box-shadow: 1px -2px 2px rgba(250, 235, 215, 0);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.bloc-image:hover h2{
+    opacity: 1;
+}
+
+/* Fin apparence image */
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 500px) {
+    /* Nav bar*/
+    nav{
+        position: relative;
+    }
+
+    .rubrique{
+      float: left;
+      display: block;
+      margin-top: 0;
+    }
+  
+    .onglet{
+      font-size: 9px;
+      margin: 5px;
+    }
+  
+    .projets{
+      color: black;
+    }
+  
+    .coordonnee{
+      clear: both;
+    }
+  
+    h3{
+      font-weight: 400;
+      font-size: 9px;
+    }
+  
+    .liens, .mail{
+      font-weight: 200;
+      font-size: 7px;
+    }
+
+    /*Image principale et titre */
+    .cadre-img-p{
+        margin: 0;
+        width: 100vw;
+        height: 60vh;
+    }
+
+    h1{
+        height: 60vh;
+        width: 90%;
+        text-align: right;
+        font-size: 35px;
+        line-height: 60vh;
+    }
+
+    .image-principale{
+        width: 100vw;
+        height: 60vh;
+        object-position: center;
+        position: absolute; 
+    }
+
+    /* Corp de page */
+    .smooth-scroll{
+        position: fixed;
+        margin: 0;
+        padding: 0;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
+    .corp-page{
+        float: none;
+        width: 80%;
+        padding: 35px;
+    }
+
+    .col{
+        display: block;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .date{
+        text-align: left;
+        padding: 20px 0;
+    }
+    
+    .contexte{
+        padding: 20px 0;
+        text-align: left;
+    }
+
+    .presentation{
+        padding: 20px 0;
+        font-size: 20px;
+        font-family: 'Cormorant Garamond', serif;
+        border-top: solid 1px black;
+        border-bottom: solid 1px black;
+    }
+
+    .texte{
+        padding: 20px 0;
+        width: 100%;
+        text-align: justify;
+    }
+
+    .double{
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .trois-quart{
+        width: 100%;
+        padding: 20px 0;
+        font-size: 20px;
+    }
+
+    .gallerie-double{
+        width: 100%;
+    }
+
+    .bloc-image h2{
+        opacity: 1;
+    }
+
+
+}
