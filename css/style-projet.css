@@ -188,10 +188,10 @@ h1{
 
 /* Animation-bloc et animation-bloc-visibilite permettent d'afficher les blocs lorsque l'affichage les focus*/
 
-.animation-bloc{
+/*.animation-bloc{
     opacity: 0;
     transform: translateY(30px);
-}
+}*/
 
 .animation-bloc-visible{
     animation: Visible 1s both;
