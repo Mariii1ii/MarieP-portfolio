@@ -2,6 +2,7 @@
 
 /*On récupère dans des variables le body, la div 'smooth-scroll', 
 la hauteur de l'écran, et la vitesse de défilement voulue */
+window.addEventListener("DOMContentLoaded", function () {
 const body = document.body;
 const scrollWrap = document.getElementsByClassName("smooth-scroll")[0];
 const height = scrollWrap.getBoundingClientRect().height - 1;
@@ -25,6 +26,7 @@ function smoothScroll() {
 
 /* On appele la fonction smoothScroll*/
 smoothScroll();
+})
 
 
 
