@@ -32,33 +32,33 @@ smoothScroll();
 
 /* On défini le taux de pourcentage des éléments devant être affichés
 et on crée le dictionnaire necessaire à l'API 'IntersectionObserver' */ 
-const pourcentageVisibilite = 0.3
-const options = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 0.3
-}
+//const pourcentageVisibilite = 0.3
+//const options = {
+  //root: null,
+ // rootMargin: '0px',
+  //threshold: 0.3
+//}
 
 /* On crée la fonction testant si l'élément est visible à l'écran
 Si son pourcentage de visibilité est suffisant la class animation-bloc est retirer 
 et la classe animation-bloc-visible est ajouté */
-const handleIntersect = function (entries, observer) {
-  entries.forEach(function (entry) {
-    if (entry.intersectionRatio > pourcentageVisibilite) {
-      entry.target.classList.remove('animation-bloc')
-      entry.target.classList.add('animation-bloc-visible')
-      observer.unobserve(entry.target)
-    }
-  })
-}
+//const handleIntersect = function (entries, observer) {
+ // entries.forEach(function (entry) {
+  //  if (entry.intersectionRatio > pourcentageVisibilite) {
+   //   entry.target.classList.remove('animation-bloc')
+    //  entry.target.classList.add('animation-bloc-visible')
+     // observer.unobserve(entry.target)
+   // }
+  //})
+//}
 
 /* Au chargement de la page, on crée l'API IntersectionObserver 
 et on récupère les éléments avec la classe .animation-bloc
 Pour chaque élément on lance la fonction handleIntersect*/
-window.addEventListener("DOMContentLoaded", function () {
-  const observer = new IntersectionObserver(handleIntersect, options)
-  const targets = document.querySelectorAll('.animation-bloc')
-  targets.forEach(function (target) {
-    observer.observe(target)
-  })
-})
+//window.addEventListener("DOMContentLoaded", function () {
+ // const observer = new IntersectionObserver(handleIntersect, options)
+  //const targets = document.querySelectorAll('.animation-bloc')
+  //targets.forEach(function (target) {
+   // observer.observe(target)
+  //})
+//})
