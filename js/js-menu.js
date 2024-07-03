@@ -128,3 +128,88 @@ Array.from(links).forEach((link) =>{
 
   }
 })
+//////////////////////////////////////////
+
+window.addEventListener('DOMContentLoaded', () => {
+	
+	// Projects page filters's variables
+	const btnAll = document.getElementById('btn-all');
+	const btnUxUi = document.getElementById('btn-UxUi');
+	const btn3D = document.getElementById('btn-3D');
+	const btnGame = document.getElementById('btn-Game');
+	const btnDev = document.getElementById('btn-Dev');
+
+	const projects = document.getElementsByClassName("prj");
+	const UXUI = document.getElementsByClassName("UXUI");
+	const Dim3 = document.getElementsByClassName("3D");
+	const GameDesign = document.getElementsByClassName("GameDesign");
+	const Dev = document.getElementsByClassName("Dev");
+
+
+	// --Caroussel projects--
+
+	//Filter
+	function filter(btn, list)
+	{
+    console.log(list);
+		// Check if is already on this filter
+		if (btn.style.color == 'white')
+		{
+			Array.from(projects).forEach(element => {
+				element.style.display = "flex";
+			})
+			btn.style.color = "grey";
+			btnAll.style.color = "white";
+		}
+		else
+		{
+			Array.from(projects).forEach(element => {
+				element.style.display = "none";
+			})
+			
+			Array.from(list).forEach(element => {
+				element.style.display = "flex";
+			})
+
+			// Change color to show on which filter we are
+			btnAll.style.color = "grey";
+			btnUxUi.style.color = "grey";
+			btn3D.style.color = "grey";
+			btnGame.style.color = "grey";
+      btnDev.style.color = "grey";
+			btn.style.color = "white";	
+		}
+	}
+
+	// Filter for the different types 
+	if (btnAll!=null){
+		btnAll.addEventListener('click', function(){
+		filter(btnAll, projects);
+		})
+	}
+
+	if (btnUxUi!=null){
+		btnUxUi.addEventListener('click', function(){
+		filter(btnUxUi, UXUI);
+	})
+	}
+	
+	if (btn3D!=null){
+		btn3D.addEventListener('click', function(){
+			filter(btn3D, Dim3);
+		})
+	}
+
+	if (btnGame!=null){
+		btnGame.addEventListener('click', function(){
+			filter(btnGame, GameDesign);
+		})
+	}
+
+  if (btnDev!=null){
+		btnDev.addEventListener('click', function(){
+			filter(btnDev, Dev);
+		})
+	}
+
+})	
