@@ -92,10 +92,32 @@ a, h3{
 
 .consigne{
   position: absolute;
-  height: 10vh;
-  width: 10vh;
   left: calc(50% - 25px);
   top: 80vh;
+  height: 7vh;
+  width: 7vh;
+}
+
+.filter{
+  display: inline;
+  border:1px solid white;
+  padding: 10px;
+  border-radius: 35px;
+  position: absolute;
+  left: calc(50% - 150px);
+  top: 90vh;
+  
+}
+
+.filter button{
+  color: white;
+  background-color: #0F100F;
+  border: none;
+}
+
+/* mets les bouttons en gris pour tous les bouttons sauf le premier, changer la valeur avec le nombre de tag */
+.filter button:nth-last-child(-n+4){
+  color: gray;
 }
 
   /*Section defilement horizontal */
@@ -160,6 +182,24 @@ a, h3{
   transition: all 0.3s;
 }
 
+.tag{
+  position: absolute;
+  font-size: 3vh;
+  top: 80%;
+  left: 5%;
+  z-index: 10;
+  text-decoration: none;
+  color: white;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.inline{
+  display: flex;
+  align-items: center;
+}
+
 .legende{
   position: absolute;
   font-size: 3vh;
@@ -197,7 +237,7 @@ a, h3{
 }
 
 .haut{
-  transform: translateY(-100%);
+  transform: translateY(-150%);
 }
 
 .haut-animation{
