@@ -1,64 +1,95 @@
-// /* SMOOTH SCROLL */
+var carrousel = {
+		
+    nbSlide : 0,
+    nbCurrent : 1,
+    elemCurrent : null,
+    elem : null,
+    timer : null,
+        
+    init : function(elem){
+        this.nbSlide = elem.find(".slide").length;
+        
+        //creation pagination
+        elem.append('<div class="carrousel-picto"></div>');
+        for(var i=1;i<=this.nbSlide;i++){
+            elem.find(".carrousel-picto").append("<li><span>"+i+"</span></li>");
+        }
+        
+        // au click goto slide correspondant
+        elem.find(".carrousel-picto span").click(function(){
+            carrousel.gotoSlide($(this).text());
+        });
+        
+        //au click prev
+        elem.find("#carrousel-nav .prev").click(function(){
+            carrousel.prev();
+        });
+        
+        //au click next
+        elem.find("#carrousel-nav .next").click(function(){
+            carrousel.next();
+        });
 
-// /*On récupère dans des variables le body, la div 'smooth-scroll', 
-// la hauteur de l'écran, et la vitesse de défilement voulue */
-// const body = document.body;
-// const scrollWrap = document.getElementsByClassName("smooth-scroll")[0];
-// const height = scrollWrap.getBoundingClientRect().height - 1;
-// const speed = 0.08;
+        //initialisation du carrousel
+        this.elem = elem;
+        elem.find(".slide").hide();
+        elem.find(".slide:first").show();
+        this.elemCurrent = elem.find(".slide:first");
+        this.elem.find(".carrousel-picto li:first").addClass("active");
+        
+        //créer timer
+        carrousel.play();	
 
-// var offset = 0;
+        //arret au survol du carrousel
+        elem.mouseover(carrousel.stop);
+        elem.mouseout(carrousel.play);
 
-// body.style.height = Math.floor(height) + "px";
+    },
+    
+    gotoSlide : function(num){
+    
+        if(num == this.nbCurrent){return false;}
 
-// /* On défini la fonction smoothScroll
-// On récupère la valeur du scroll que l'on multiplie à la vitesse de défilement
-// On réinjecte la valeur calculée dans un translate Y permettant de faire bouger la div 'smooth-scroll'*/
-// function smoothScroll() {
-//     offset += (window.pageYOffset - offset) * speed;
+        /*Animation en slide*/
+        var sens = 1;
+            if(num<this.nbCurrent){sens = -1;}
+        var cssDepart = {"left":sens*this.elem.width()};
+        var cssFin = {"left":sens*-this.elem.width()};
+        this.elem.find("#slide"+num).show().css(cssDepart);
+        
+        this.elem.find("#slide"+num).animate({"top":0,"left":0},500);
+        this.elemCurrent.animate(cssFin,500);
 
-//     var scroll = "translateY(-" + offset + "px) translateZ(0)";
-//     scrollWrap.style.transform = scroll;
+        this.elem.find(".carrousel-picto li").removeClass("active");
+        this.elem.find(".carrousel-picto li:eq("+(num-1)+")").addClass("active");
+        this.nbCurrent = num;
+        this.elemCurrent = this.elem.find("#slide"+num);
+    },
+    
+    next : function(){
+        var num = this.nbCurrent+1;
+        if(num > this.nbSlide){
+            num = 1;
+        }
+        this.gotoSlide(num);
+    },
+    prev : function(){
+        var num = this.nbCurrent-1;
+        if(num <1){
+            num = this.nbSlide;
+        }
+        this.gotoSlide(num);
+    },
+    stop :function(){
+        window.clearInterval(carrousel.timer);
+    },
+    play : function(){
+        window.clearInterval(carrousel.timer);
+        carrousel.timer = window.setInterval("carrousel.next()",3000);
+    }
+    
+}
 
-//     callScroll = requestAnimationFrame(smoothScroll);
-// }
-
-// /* On appele la fonction smoothScroll*/
-// smoothScroll();
-
-
-
-// /* APPARITION DES BLOCS EN FONCTION DE LA POSITION DE LA PAGE */
-
-// /* On défini le taux de pourcentage des éléments devant être affichés
-// et on crée le dictionnaire necessaire à l'API 'IntersectionObserver' */ 
-// const pourcentageVisibilite = 0.3
-// const options = {
-//   root: null,
-//   rootMargin: '0px',
-//   threshold: 0.3
-// }
-
-// /* On crée la fonction testant si l'élément est visible à l'écran
-// Si son pourcentage de visibilité est suffisant la class animation-bloc est retirer 
-// et la classe animation-bloc-visible est ajouté */
-// const handleIntersect = function (entries, observer) {
-//   entries.forEach(function (entry) {
-//     if (entry.intersectionRatio > pourcentageVisibilite) {
-//       entry.target.classList.remove('animation-bloc')
-//       entry.target.classList.add('animation-bloc-visible')
-//       observer.unobserve(entry.target)
-//     }
-//   })
-// }
-
-// /* Au chargement de la page, on crée l'API IntersectionObserver 
-// et on récupère les éléments avec la classe .animation-bloc
-// Pour chaque élément on lance la fonction handleIntersect*/
-// window.addEventListener("DOMContentLoaded", function () {
-//   const observer = new IntersectionObserver(handleIntersect, options)
-//   const targets = document.querySelectorAll('.animation-bloc')
-//   targets.forEach(function (target) {
-//     observer.observe(target)
-//   })
-// })
+$(function(){
+    carrousel.init($("#carrousel"));
+});
