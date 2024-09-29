@@ -7,6 +7,8 @@
     <title>Odyssée - Marie PARISSE</title>
     <link rel="stylesheet" type="text/css" href="./css/style-projet.css">
     <script src="./js/js-projet.js" defer></script>
+    <script src="./jquery360/jquery-360.min.js"></script>
+
 </head>
 <body>
 
@@ -50,7 +52,7 @@
                     2024
                 </div>
                 <div class="contexte">
-                    UX/UI, Dev
+                    UX/UI, Developpement AR
                 </div>
                 <div class="contexte">
                     Logiciels : <br>Illustrator, Figma, After Effect, Unity
@@ -63,7 +65,35 @@
                 Conception et développement d’une application de visite culturelle et de valorisation du territoire
             </div>
 
-            <div>
+            <!-- section carroussel photo -->
+
+            <div id="carrousel">
+                <div id="slide1" class="slide">
+                    <div class="visu">
+                        <img class="image" src="./img/projet - odyssee/Mockup Odyssee 2.png" alt="Slide1">
+                    </div>               
+                </div>
+                <div id="slide2" class="slide">
+                    <div class="visu">
+                        <img class="image" src="./img/projet - odyssee/Mockup Odyssee 4.png" alt="Slide2">
+                    </div>
+                </div>
+                <div id="slide3" class="slide">
+                    <div class="visu">
+                        <img class="image" src="./img/projet - odyssee/Mockup Odyssee 5.png" alt="Slide3">
+                    </div>
+                </div>
+            
+                <div id="carrousel-nav">
+                <div class="prev"></div>
+                <div class="next"></div>
+                </div>
+
+            </div>
+
+            <!-- Fin carrousel photo -->
+
+            <br><br><div>
                 <a style="color: black; text-decoration: underline;" class="texte" href="https://www.figma.com/proto/FgcbuKGTAcet4BExfSK0fq/Odyssee?type=design&node-id=179-1523&t=K2RfME3sI0mIw5mR-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=178%3A1437&mode=design">
                 -> Tester l'application sur Figma</a>
             </div>
@@ -93,74 +123,152 @@
             </div>
             <!-- Fin section 2 colonnes de texte-->
 
-            <!-- Section 2 colonnes image et texte-->
-            <div class="col">
-                <div class="double bloc-image">
-                    <img class="image" src="./img/projet - odyssee/Mockup Odyssee 4.png"/>
-                    <h2>Mock up de l'application</h2>
-                </div>
-                <p class="texte">
-                    <b>Technique</b><br>Les visuels de l’application ont été réalisé dans Illustrator. 
-                    Les wireframes et la maquette ont été conçu avec Figma. Le développement a été 
-                    réalisé avec Unity, Vuforia, PHPmyAdmin et LeafletJS   
+
+            <div class="trois-quart exergue">
+                <p>
+                    Approche et stratégie de Conception
                 </p>
             </div>
 
+            <p class="texte-troisquart problematique">Comment créer une expérience personnalisée de visite touristique tout en incluant les acteurs locaux ?</p>
+
+            <p class="texte">J’ai organisé ce projet en 3 phases</p>
+
+
+            <!-- Section diviser en 3 colonnes présentant les étapes de conceptions-->
+            <div class="col">
+                <div class="col contexte bordure-droite">
+                    <img class="logo-etape" src="./img/recherches.png"/>
+                    <div>
+                        <h3>Recherches</h3>
+                        <p class="etape-conception">Etat de l’art et analyse des concurrents, Définition des besoins des utilisateurs</p>
+                    </div> 
+                </div>
+                    <div class="col contexte bordure-droite">
+                        <img class="logo-etape" src="./img/ideation.png"/>
+                        <div>
+                            <h3>Idéation</h3>
+                            <p class="etape-conception">Choix des fonctionnalistés de l’application et structuration du parcours utilisateur</p>
+                        </div>
+                </div>
+                <div class="col contexte">
+                    <img class="logo-etape" src="./img/design et developpement.png"/>
+                    <div>
+                        <h3>Design et développement</h3>
+                        <p class="etape-conception">Création de l’application : wireframe, charte graphique, développement (Unity, Vuforia, PHPmyAdmin et LeafletJS)</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin section 3 colonnes-->
+
             <!-- Fin section 2 colonnes image et texte-->
+
+            <div class="trois-quart exergue">
+                <p>
+                    Recherche et capture du besoin
+                </p>
+            </div>
+
+            <!-- Section 2 colonnes image et texte-->
+            <div class="col align-vert">
+                
+                <p class="texte">
+                    La première étape de conception à consisté en un benchmarck de la concurrence. L’analyse de l’existant permet d’avoir une meilleure vue d'ensemble des solutions déjà sur le marché ainsi que leurs forces et faiblesses. La découverte de ses projets est également une source d’inspiration pour imaginer des fonctionnalités innovantes et novatrices à implémenter dans le concept.
+                    Il existe beaucoup d'applications proposant des visites touristiques mais elles ne s'adaptent pas toujours aux besoins du public. Il n’est pas possible de choisir la durée, la destination,modifier les paramètres en cours de visite… Avec ce projet, je souhaite proposer une expérience fluide et personnalisable pour que chaque utilisateur trouve son bonheur. L’ajout d’un ystème de récompense me semble très pertinent pour toucher un public peu habitué aux visites touristiques.
+                    
+                    Les récompenses aquisent pourront être utiliser dans les commerces de la région afin de développer l’économie locale
+                </p>
+                <div class="double bloc-image">
+                    <img class="image" src="./img/projet - odyssee/etat de art.png"/>
+                    <h2>Etat de l'art</h2>
+                </div>
+                
+            </div>
+
+            <!-- Section 2 colonnes de texte-->
+            <div class="trois-quart">
+                <p class="texte-troisquart">
+                    Un personae est un personnage fictif regroupant les besoins de différents groupes d’utilisateurs de l’application. Grâce à leurs mise en place, il est possible de tester l’ergonomie de la plateforme en vérifiant que les attentes de chacun sont biens prise en compte. Ils permettent ainsi de repréciser les angles d’actions et apporter de nouveaux éléments utiles lors du développement.
+
+Pour ce projet, 3 personnae ont été déploié afin de cibler les besoins des visiteurs, des commerces et des lieux culturels.
+                </p>
+            </div>
+            <!-- Fin section 2 colonnes de texte-->
+
+            <!-- Image pleine page-->
+            <div class="col">
+                <div class="simple bloc-image">
+                    <img class="image" src="./img/projet - odyssee/personae.png"/>
+                    <h2>Personae</h2>
+                </div>
+            </div>
+
+            <div class="trois-quart exergue">
+                <p>
+                    Les fonctionnalités de l’application
+                </p>
+            </div>
 
             <!-- Section 2 colonnes de texte-->
             <div class="col">
                 <p class="texte">
-                    <b>Parcours utilisateur et wireframes</b><br>L’élaboration du projet a commencé par la mise en place de parcours 
-                    utlisateurs. J’ai créé des personnas pour bien cerner les différentes attentes et 
-                    besoins des différents profils types.  
-                    Cette analyse préalable a permis de mettre en place l’arborescence de l’application. 
-                    Il s’agit d’un élément essentiel pour planifier la structure et la navigation du 
-                    projet. 
+                    L’application permet de découvrir les points d'intérêts de la Seine-Saint-Denis à travers des parcours de visites personnalisées. La navigation se fait via une carte 2D ou par réalité augmentée en fonction de la préférence de l’utilisateur. Un système de points de récompense est disponible pour rétribuer et inciter les utilisateurs à se servir de l’application. Pour chaque visite, l’application verse des points de récompense en fonction du temps d’exploration. Chaque lieu touristique découvert lors d’une visite peut être scanné pour obtenir une version numérique du bâtiment. En remplissant le catalogue des scans, des points d’expériences sont crédités. 
 
                 </p>
 
                 <p class="texte">
-                    <br>Cette visualisation hiérarchique offre une vue d’ensemble de l’organisation de 
-                    l’application et de ses fonctionnalités afin de rendre l’expérience utilisateur la 
-                    plus fluide et intuitive possible. 
-                    L’ensemble des étapes de l’arborescence ont ensuite été designé via des wireframes. 
-                    Cette étape a permis d’imaginer l’interface et de travailler sur la navigation entre 
-                    les différentes pages. 
+                    A la fin de chaque excursion et en échange de points de récompenses supplémentaires, l’utilisateur pourra participer à un quizz s’adaptant aux lieux visités pour valoriser la rétention du contenu pédagogique dispensé lors du parcours. La cagnotte ainsi remplie peut être convertie en récompenses chez les partenaires de l’application, allant de pourcentage de réductions sur leurs produits à des cadeaux exclusifs ! L'application propose plusieurs types de visites pour s’adapter au maximum aux différents besoins et envies. Plusieurs thématiques sont disponibles pour créer des parcours de visites adaptés aux goûts de chacun 
                 </p>   
             </div>
             <!-- Fin section 2 colonnes de texte-->
 
+            <!-- Image pleine page-->
             <div class="col">
                 <div class="simple bloc-image">
-                    <img class="image" src="./img/projet - odyssee/arbo2.png">
+                    <img class="image" src="./img/projet - odyssee/mode de visite.png"/>
+                    <h2>Fonctionnalités de l'application</h2>
+                </div>
+            </div>
+
+            <!-- Section 2 colonnes de texte-->
+            <div class="col">
+                <p class="texte">
+                    Cette visualisation hiérarchique offre une vue d’ensemble de l’organisation de l’application et de ses fonctionnalités afin de rendre l’expérience utilisateur la plus fluide et intuitive possible. 
+
+                </p> 
+            </div>
+            <!-- Fin section 2 colonnes de texte-->
+
+            <!-- Image pleine page-->
+            <div class="col">
+                <div class="simple bloc-image">
+                    <img class="image" src="./img/projet - odyssee/arbo2.png"/>
                     <h2>Arborescence de l'application</h2>
                 </div>
             </div>
-            <!-- Section 2 colonnes images-->
+
+            <div class="trois-quart exergue">
+                <p>
+                    Design et développement
+                </p>
+            </div>
+
+            <!-- Section 2 colonnes de texte-->
             <div class="col">
-                <div class="double bloc-image">
-                    <img class="image" src="./img/projet - odyssee/wireframe 4.png"/>
-                    <h2>Wireframe de l'application</h2>
-                </div>
-                <div class="double bloc-image">
-                    <img class="image" src="./img//projet - odyssee/wireframe 1.png"/>
-                    <h2>Wireframe de l'application</h2>
+                <p class="texte">
+                    L’ensemble des étapes de l’arborescence ont ensuite été designé via des wireframes. Cette étape a permis d’imaginer l’interface et de travailler sur la navigation entre les différentes pages.
+
+                </p> 
+            </div>
+            <!-- Fin section 2 colonnes de texte-->
+
+            <!-- Image pleine page-->
+            <div class="col">
+                <div class="simple bloc-image">
+                    <img class="image" src="./img/projet - odyssee/wireframe.png"/>
+                    <h2>Wireframes de l'application</h2>
                 </div>
             </div>
-            <!-- Fin section 2 colonnes images-->
-             <!-- Section 2 colonnes images-->
-            <div class="col">
-                <div class="double bloc-image">
-                    <img class="image" src="./img/projet - odyssee/wireframe 2.png"/>
-                    <h2>Wireframe de l'application</h2>
-                </div>
-                <div class="double bloc-image">
-                    <img class="image" src="./img//projet - odyssee/wireframe 3.png"/>
-                    <h2>Wireframe de l'application</h2>
-                </div>
-            </div>
-            <!-- Fin section 2 colonnes images-->
 
             <!-- Section 2 colonnes de texte-->
             <div class="col">
@@ -197,47 +305,55 @@
             <!-- Image pleine page-->
             <div class="col">
                 <div class="simple bloc-image">
-                    <img class="image" src="./img/projet - odyssee/logo.png"/>
-                    <h2>Logo</h2>
+                    <img class="image" src="./img/projet - odyssee/planche graphique.png"/>
+                    <h2>Charte graphique</h2>
                 </div>
             </div>
-            <!-- Section 2 colonnes images-->
-            <div class="col">
-                <div class="double bloc-image">
-                    <img class="image" src="./img/projet - odyssee/composition lofo.png"/>
-                    <h2>Composition du logo</h2>
-                </div>
-                <div class="double bloc-image">
-                    <img class="image" src="./img//projet - odyssee/couleur.png"/>
-                    <h2>Couleur</h2>
-                </div>
-            </div>
-            <!-- Fin section 2 colonnes images-->
-            <!-- Section 2 colonnes images-->
-            <div class="col">
-                <div class="double bloc-image">
-                    <img class="image" src="./img/projet - odyssee/Mockup Odyssee 5.png"/>
-                    <h2>Mock up de l'application</h2>
-                </div>
-                <div class="double bloc-image">
-                    <img class="image" src="./img//projet - odyssee/Mockup Odyssee 6.png"/>
-                    <h2>Mock up de l'application</h2>
-                </div>
-            </div>
-            <!-- Fin section 2 colonnes images-->
             
-             <!-- Section 2 colonnes images-->
-            <div class="col">
+            <!-- Section 2 colonnes image et texte-->
+            <div class="col align-vert">
+                
+                <p class="texte">
+                    La conception de la maquette de l’application permet d’obtenir un aperçu visuel et fonctionnel avant la phase de développement. Cette étape permet d’ajuster et d’itérer le design des pages afin de proposer une expérience utilisateur la plus plaisante et ergonomique possible. J’ai travaillé à la mise en place d’une interface discrète, laissant la place au contenu, mais tout de même marquante et identitaire. Le logo est utilisé dans de nombreux éléments, notamment les panneaux d’informations présentant des boutons dans leurs coins supérieurs, ou encore sur la page d’accueil. La forme vient épouser les conteneurs colorés, créant des courbes en défonce, marqueurs forts de la charte graphique d’Odyssée. <br><br>L’utilisation de motif topographique vient renforcer l’identité du projet, en s’appliquant en arrière plan dans certaines parties de l’application.<br><br>
+                </p>
                 <div class="double bloc-image">
-                    <img class="image" src="./img/projet - odyssee/Mockup Odyssee 3.png"/>
-                    <h2>Mock up de l'application</h2>
-                </div>
-                <div class="double bloc-image">
-                    <img class="image" src="./img//projet - odyssee/Mockup Odyssee 4.png"/>
-                    <h2>Mock up de l'application</h2>
+                    <img class="image" src="./img/projet - odyssee/formes graphiques.png"/>
+                    <h2>Codification graphique</h2>
                 </div>
             </div>
-            <!-- Fin section 2 colonnes images-->
+
+            <!-- Image pleine page-->
+            <div class="col">
+                <div class="simple bloc-image">
+                    <img class="image" src="./img/projet - odyssee/mise en situation1.png"/>
+                    <h2>Mise en situation</h2>
+                </div>
+            </div>
+
+            <!-- Image pleine page-->
+            <div class="col">
+                <div class="simple bloc-image">
+                    <img class="image" src="./img/projet - odyssee/mise en situation2.png"/>
+                    <h2>Mise en situation</h2>
+                </div>
+            </div>
+
+            <!-- Image pleine page-->
+            <div class="col">
+                <div class="simple bloc-image">
+                    <img class="image" src="./img/projet - odyssee/mise en situation3.png"/>
+                    <h2>Mise en situation</h2>
+                </div>
+            </div>
+
+            <!-- Image pleine page-->
+            <div class="col">
+                <div class="simple bloc-image">
+                    <img class="image" src="./img/projet - odyssee/mise en situation4.png"/>
+                    <h2>Mise en situation</h2>
+                </div>
+            </div>
+
         </section>
     </div>
 
